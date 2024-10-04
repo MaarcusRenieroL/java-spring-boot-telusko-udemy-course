@@ -3,3 +3,5 @@
 **/.DS_Store
 **/*.iml
 **/target
+**/.mvn
+**/HELP.md
