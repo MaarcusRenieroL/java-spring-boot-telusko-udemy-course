@@ -16,11 +16,7 @@ public class App {
 		alien1.code();
 		
 		Alien alien2 = (Alien) context.getBean("alien2");
-		System.out.println(alien2.age);
+		System.out.println(alien2.getAge());
 		alien2.code();
-		
-		Alien alien3 = (Alien) context.getBean("alien2");
-		System.out.println(alien3.age);
-		alien3.code();
 	}
 }

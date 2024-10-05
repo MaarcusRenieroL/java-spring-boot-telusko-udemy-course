@@ -2,11 +2,19 @@ package com.maarcus;
 
 public class Alien {
 	
-	int age = 21;
+	private int age;
 	
 	public Alien() {
 		System.out.println("Object created");
-		age++;
+	}
+	
+	public int getAge() {
+		return this.age;
+	}
+	
+	public void setAge(int age) {
+		System.out.println("Setter called");
+		this.age = age;
 	}
 	
 	public void code() {
