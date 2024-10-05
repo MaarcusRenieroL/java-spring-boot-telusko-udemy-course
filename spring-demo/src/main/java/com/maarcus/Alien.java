@@ -5,7 +5,7 @@ import java.beans.ConstructorProperties;
 public class Alien {
 	
 	private int age;
-	private Laptop laptop;
+	private Computer computer;
 	
 	public Alien() {
 		System.out.println("Object created");
@@ -17,11 +17,11 @@ public class Alien {
 	}
 	
 	// use this annotation when you dont want to follow any sequence
-	@ConstructorProperties({ "age", "laptop" })
-	public Alien(int age, Laptop laptop) {
+	@ConstructorProperties({ "age", "computer" })
+	public Alien(int age, Computer laptop) {
 		System.out.println("Age, Laptop constructor called");
 		this.age = age;
-		this.laptop = laptop;
+		this.computer = laptop;
 	}
 	
 	public int getAge() {
@@ -33,17 +33,17 @@ public class Alien {
 		this.age = age;
 	}
 	
-	public Laptop getLaptop() {
-		return laptop;
+	public Computer getComputer() {
+		return computer;
 	}
 	
-	public void setLaptop(Laptop laptop) {
+	public void setComputer(Computer computer) {
 		System.out.println("Laptop Setter called");
-		this.laptop = laptop;
+		this.computer = computer;
 	}
 	
 	public void code() {
-		laptop.compile();
+		computer.compile();
 		System.out.println("Coding");
 	}
 }
