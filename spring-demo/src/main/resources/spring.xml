@@ -6,7 +6,8 @@
 
   <bean id="alien2" class="com.maarcus.Alien">
     <property name="age" value="21" />
+    <property name="laptop" ref="laptop1" />
   </bean>
 
-
+  <bean id="laptop1" class="com.maarcus.Laptop" />
 </beans>

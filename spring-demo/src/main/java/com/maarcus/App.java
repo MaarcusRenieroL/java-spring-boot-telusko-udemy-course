@@ -12,11 +12,8 @@ public class App {
 		
 		// Gets the bean
 		// Here we are using the object alien by getting it from the getBean function
-		Alien alien1 = (Alien) context.getBean("alien1");
+		Alien alien1 = (Alien) context.getBean("alien2");
 		alien1.code();
 		
-		Alien alien2 = (Alien) context.getBean("alien2");
-		System.out.println(alien2.getAge());
-		alien2.code();
 	}
 }
