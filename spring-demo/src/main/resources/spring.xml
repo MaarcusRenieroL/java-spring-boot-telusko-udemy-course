@@ -27,6 +27,6 @@
     <constructor-arg index="1" ref="laptop2" />
   </bean>
 
-  <bean id="laptop1" class="com.maarcus.Laptop" />
+  <bean id="laptop1" class="com.maarcus.Laptop" primary="true" />
   <bean id="laptop2" class="com.maarcus.Laptop" />
 </beans>

@@ -15,8 +15,8 @@ public class App {
 		 Here we are using the object alien by getting it from the getBean function
 		*/
 		
-		Alien alien1 = (Alien) context.getBean("alien2");
-		alien1.code();
+		Alien alien2 = (Alien) context.getBean("alien2");
+		alien2.code();
 		
 		Alien alien3 = (Alien) context.getBean("alien3");
 		alien3.code();
