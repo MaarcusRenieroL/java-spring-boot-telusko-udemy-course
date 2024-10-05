@@ -10,10 +10,16 @@ public class App {
 		// This is not only creating a container but creates objects for all the beans with classes mentioned in the spring.xml file
 		ApplicationContext context = new ClassPathXmlApplicationContext("spring.xml");
 		
-		// Gets the bean
-		// Here we are using the object alien by getting it from the getBean function
+		/*
+		 Gets the bean
+		 Here we are using the object alien by getting it from the getBean function
+		*/
+		
 		Alien alien1 = (Alien) context.getBean("alien2");
 		alien1.code();
+		
+		Alien alien3 = (Alien) context.getBean("alien3");
+		alien3.code();
 		
 	}
 }

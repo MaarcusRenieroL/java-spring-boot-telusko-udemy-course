@@ -1,5 +1,7 @@
 package com.maarcus;
 
+import java.beans.ConstructorProperties;
+
 public class Alien {
 	
 	private int age;
@@ -7,6 +9,19 @@ public class Alien {
 	
 	public Alien() {
 		System.out.println("Object created");
+	}
+	
+	public Alien(int age) {
+		System.out.println("Age constructor called");
+		this.age = age;
+	}
+	
+	// use this annotation when you dont want to follow any sequence
+	@ConstructorProperties({ "age", "laptop" })
+	public Alien(int age, Laptop laptop) {
+		System.out.println("Age, Laptop constructor called");
+		this.age = age;
+		this.laptop = laptop;
 	}
 	
 	public int getAge() {
