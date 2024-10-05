@@ -17,7 +17,7 @@
 
   <!-- without sequence -->
   <bean id="alien4" class="com.maarcus.Alien">
-    <constructor-arg type="com.maarcus.Laptop" ref="laptop2" />
+    <constructor-arg type="com.maarcus.Computer" ref="laptop2" />
     <constructor-arg type="int" value="21" />
   </bean>
 
@@ -25,12 +25,6 @@
   <bean id="alien5" class="com.maarcus.Alien">
     <constructor-arg index="0" value="21" />
     <constructor-arg index="1" ref="laptop2" />
-  </bean>
-
-  <!-- with name -->
-  <bean id="alien6" class="com.maarcus.Alien">
-    <constructor-arg name="age" value="21" />
-    <constructor-arg name="laptop" ref="laptop2" />
   </bean>
 
   <bean id="laptop1" class="com.maarcus.Laptop" />
