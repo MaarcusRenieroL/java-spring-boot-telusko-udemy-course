@@ -1,5 +1,8 @@
 package com.maarcus.model;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class Alien {
 	private int age;
 	private Computer computer;
