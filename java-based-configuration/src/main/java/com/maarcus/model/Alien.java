@@ -9,6 +9,7 @@ public class Alien {
 	private int age;
 	
 	@Autowired
+//	@Qualifier("laptop")
 	private Computer computer;
 	
 	public Alien() {
