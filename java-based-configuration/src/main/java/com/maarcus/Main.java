@@ -12,7 +12,7 @@ public class Main {
 
 		Alien alien = context.getBean(Alien.class);
 
-		alien.setAge(12);
+//		alien.setAge(12);
 		System.out.println(alien.getAge());
 		alien.code();
 		
