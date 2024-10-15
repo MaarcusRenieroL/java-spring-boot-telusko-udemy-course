@@ -27,7 +27,7 @@ public class StudentRepository {
 	
 	public void save(Student s) {
     // update function in JdbcTemplate class is used to execute DML queries
-    int rows = jdbcTemplate.update("insert into student (rollno, name, marks) values (?, ?, ?)", s.getRollNo(), s.getName(), s.getMarks());
+    int rows = jdbcTemplate.update("insert into students (rollno, name, marks) values (?, ?, ?)", s.getRollNo(), s.getName(), s.getMarks());
     System.out.println(rows + " affected");
   }
 
@@ -47,7 +47,7 @@ public class StudentRepository {
       }
     };
 
-    return jdbcTemplate.query("select * from student", mapper);
+    return jdbcTemplate.query("select * from students", mapper);
   }
 
   // other way of writing the above function

@@ -14,14 +14,14 @@ public class SpringJdbcApplication {
   public static void main(String[] args) {
     ApplicationContext context = SpringApplication.run(SpringJdbcApplication.class, args);
 
-    Student s = context.getBean(Student.class);
+    // Student s = context.getBean(Student.class);
     StudentService ss = context.getBean(StudentService.class);
 
-    s.setRollNo(104);
-    s.setName("abc");
-    s.setMarks(90);
+    // s.setRollNo(104);
+    // s.setName("abc");
+    // s.setMarks(90);
 
-    ss.addStudent(s);
+    // ss.addStudent(s);
 
     List<Student> students = ss.getStudents();
 
