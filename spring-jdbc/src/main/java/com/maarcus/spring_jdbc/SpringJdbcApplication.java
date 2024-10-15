@@ -1,5 +1,7 @@
 package com.maarcus.spring_jdbc;
 
+import java.util.List;
+
 import com.maarcus.spring_jdbc.model.Student;
 import com.maarcus.spring_jdbc.service.StudentService;
 import org.springframework.boot.SpringApplication;
@@ -20,5 +22,11 @@ public class SpringJdbcApplication {
     s.setMarks(90);
 
     ss.addStudent(s);
+
+    List<Student> students = ss.getStudents();
+
+    for(Student student: students) {
+      System.out.println("Student Roll Number: " + student.getRollNo() + "    " + "Student Name: " + student.getName() + "    " + "Student Marks: " + student.getMarks());
+    }
   }
 }
