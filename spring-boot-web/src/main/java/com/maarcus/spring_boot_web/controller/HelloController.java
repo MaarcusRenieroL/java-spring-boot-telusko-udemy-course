@@ -1,13 +1,10 @@
 package com.maarcus.spring_boot_web.controller;
 
+import com.maarcus.spring_boot_web.model.Alien;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
-
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpSession;
 
 @Controller
 public class HelloController {
@@ -21,7 +18,8 @@ public class HelloController {
   // @RequestMapping("/add")
   // public String add(HttpServletRequest request, HttpSession session) {
 
-  //   session.setAttribute("result", Integer.parseInt(request.getParameter("num1")) + Integer.parseInt(request.getParameter("num2")));
+  //   session.setAttribute("result", Integer.parseInt(request.getParameter("num1")) +
+  // Integer.parseInt(request.getParameter("num2")));
   //   return "result.jsp";
   // }
 
@@ -54,4 +52,18 @@ public class HelloController {
     mv.setViewName("result");
     return mv;
   }
+
+  @RequestMapping("/addAlien")
+  public ModelAndView addAlien(@RequestParam int id, @RequestParam String name, ModelAndView mv) {
+    mv.addObject("alien", new Alien(id, name));
+    mv.setViewName("result");
+    return mv;
+  }
+
+  // using model attribute annotation is optional because it is used behind the scenes
+  // @RequestMapping("/addAlien1")
+  // public String addAlien(@ModelAttribute Alien alien) {
+  //   return "result";
+  // }
 }
+

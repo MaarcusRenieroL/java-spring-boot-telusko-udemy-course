@@ -8,11 +8,11 @@
   </body>
   <h2>Telusko Calculator</h2>
 
-  <form action="add">
-    <label for="num1">Enter 1st Number :</label>
-    <input type="text" id=num1" name="num1"><br>
-    <label for="num2">Enter 2nd Number :</label>
-    <input type="text" id="num2" name="num2"><br>
+  <form action="addAlien">
+    <label for="id">Enter id :</label>
+    <input type="text" id="id" name="id"><br>
+    <label for="num2">Enter name :</label>
+    <input type="text" id="name" name="name"><br>
     <input type="submit" value="Submit">
   </form>
 
