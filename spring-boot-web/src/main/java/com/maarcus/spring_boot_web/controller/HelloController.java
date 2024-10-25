@@ -4,6 +4,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
 
 @Controller
 public class HelloController {
@@ -14,9 +15,9 @@ public class HelloController {
   }
 
   @RequestMapping("/add")
-  public String add(HttpServletRequest request) {
+  public String add(HttpServletRequest request, HttpSession session) {
 
-    System.out.println(Integer.parseInt(request.getParameter("num1")) + Integer.parseInt(request.getParameter("num2")));
+    session.setAttribute("result", Integer.parseInt(request.getParameter("num1")) + Integer.parseInt(request.getParameter("num2")));
     return "result.jsp";
   }
 }
