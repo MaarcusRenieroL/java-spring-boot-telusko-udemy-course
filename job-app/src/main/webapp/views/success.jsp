@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-	<%@ page import="com.telusko.JobApp.model.JobPost" %>
+	<%@ page import="com.maarcus.job_app.model.JobPost" %>
 		<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 			<%@page isELIgnored="false" %>
 				<!DOCTYPE html>
@@ -67,11 +67,11 @@
 										</p>
 										<p class="card-text">
 											<strong>Description:</strong>
-											${jobPost.postDesc}
+											${jobPost.postDescription}
 										</p>
 										<p class="card-text">
 											<strong>Experience Required:</strong>
-											${jobPost.reqExperience} years
+											${jobPost.requiredExperience} years
 										</p>
 										<p class="card-text">
 											<strong>Tech Stack Required:</strong>
