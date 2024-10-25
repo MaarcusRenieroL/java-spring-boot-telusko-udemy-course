@@ -1,6 +1,7 @@
 package com.maarcus.spring_boot_web.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -12,7 +13,7 @@ public class HelloController {
 
   @RequestMapping("/")
   public String hello() {
-    return "index.jsp";
+    return "index";
   }
 
   // way 1
@@ -31,10 +32,18 @@ public class HelloController {
   // }
 
   // way 3
+  // @RequestMapping("/add")
+  // public String add(@RequestParam int num1, @RequestParam int num2, HttpSession session) {
+  //   session.setAttribute("result", num1 + num2);
+  //   return "result.jsp";
+  // }
+
+  // way 4
   @RequestMapping("/add")
-  public String add(@RequestParam int num1, @RequestParam int num2, HttpSession session) {
-    session.setAttribute("result", num1 + num2);
-    return "result.jsp";
+  public String add(@RequestParam int num1, @RequestParam int num2, Model model) {
+    model.addAttribute("result", num1 + num2);
+
+    return "result";
   }
 
 }
