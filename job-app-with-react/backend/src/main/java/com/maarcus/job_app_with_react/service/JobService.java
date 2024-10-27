@@ -17,4 +17,8 @@ public class JobService {
   public void save(JobPost jobPost) {
     jobRepository.save(jobPost);
   }
+
+  public JobPost findById(int id) {
+    return jobRepository.findById(id);
+  }
 }

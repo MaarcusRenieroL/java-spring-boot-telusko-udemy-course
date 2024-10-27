@@ -175,6 +175,16 @@ public class JobRepository {
     return jobPosts;
   }
 
+  public JobPost findById(int id) {
+    for (JobPost jobPost : jobPosts) {
+      if (jobPost.getPostId() == id) {
+        return jobPost;
+      }
+    }
+
+    return null;
+  }
+
   public void save(JobPost jobPost) {
     jobPosts.add(jobPost);
   }
