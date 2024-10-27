@@ -1,5 +1,7 @@
 **/.idea
 .DS_Store
+job-app-with-react/frontend/node_modules
+job-app-with-react/frontend/pnpm-lock.yaml
 **/.DS_Store
 **/*.iml
 **/target
