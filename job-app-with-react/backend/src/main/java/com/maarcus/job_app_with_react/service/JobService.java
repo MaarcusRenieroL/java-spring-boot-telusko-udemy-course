@@ -21,4 +21,12 @@ public class JobService {
   public JobPost findById(int id) {
     return jobRepository.findById(id);
   }
+
+  public void updateJob(int id, JobPost jobPost) {
+    jobRepository.updateJob(id, jobPost);
+  }
+
+  public void deleteJob(int id) {
+    jobRepository.deleteById(id);
+  }
 }

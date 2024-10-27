@@ -188,4 +188,19 @@ public class JobRepository {
   public void save(JobPost jobPost) {
     jobPosts.add(jobPost);
   }
+
+  public void updateJob(int id, JobPost jobPost) {
+    for (JobPost post : jobPosts) {
+      if (post.getPostId() == id) {
+        post.setPostProfile(jobPost.getPostProfile());
+        post.setPostDescription(jobPost.getPostDescription());
+        post.setRequiredExperience(jobPost.getRequiredExperience());
+        post.setPostTechStack(jobPost.getPostTechStack());
+      }
+    }
+  }
+
+  public void deleteById(int id) {
+    jobPosts.remove(findById(id));
+  }
 }
