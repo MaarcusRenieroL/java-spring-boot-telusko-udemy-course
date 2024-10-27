@@ -20,33 +20,40 @@ public class JobController {
   @Autowired private JobService jobService;
 
   @GetMapping("jobPosts")
+  // @GetMapping(
+  //     "jobPosts",
+  //     produces = {"application/xml"})
+  // If produces is added then it means that the data returns is of that format. If this type is not
+  // added in the headers then it will throw a 406 (not accepted) error
   public List<JobPost> getAllJobs() {
     return jobService.findAll();
   }
 
-  @GetMapping("/jobPosts/{id}")
+  @GetMapping("/jobPost/{id}")
   public JobPost getJobPost(@PathVariable int id) {
     return jobService.findById(id);
   }
 
   @PostMapping("/jobPosts")
+  // If consumes is added then it means that this post mapping accepts data in xml format only. Else
+  // 415 (unsupported media type) error will occur
+  // @PostMapping(
+  //     "/jobPosts",
+  //     consumes = {"application/xml"})
   public JobPost addJob(@RequestBody JobPost jobPost) {
     jobService.save(jobPost);
 
     return jobService.findById(jobPost.getPostId());
   }
 
-  @PutMapping("/jobPosts/{id}")
+  @PutMapping("/jobPost/{id}")
   public JobPost updateJob(@PathVariable int id, @RequestBody JobPost jobPost) {
-    System.out.println(jobPost.getPostProfile());
-    System.out.println(jobPost.getPostDescription());
-    System.out.println(jobPost.getRequiredExperience());
     jobService.updateJob(id, jobPost);
 
     return jobService.findById(jobPost.getPostId());
   }
 
-  @DeleteMapping("/jobPosts/{id}")
+  @DeleteMapping("/jobPost/{id}")
   public void deleteJob(@PathVariable int id) {
     jobService.deleteJob(id);
   }
