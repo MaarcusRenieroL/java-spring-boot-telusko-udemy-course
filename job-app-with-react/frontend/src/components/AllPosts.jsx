@@ -16,7 +16,7 @@ const Search = () => {
 
   useEffect(() => {
     const fetchInitialPosts = async () => {
-      const response = await axios.get(`http://localhost:8080/view-all-jobs`);
+      const response = await axios.get(`http://localhost:8080/jobPosts`);
       setPost(response.data);
     };
     fetchInitialPosts();
@@ -101,4 +101,3 @@ const Search = () => {
 };
 
 export default Search;
-

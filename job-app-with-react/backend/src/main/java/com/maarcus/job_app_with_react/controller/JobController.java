@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -15,13 +17,20 @@ public class JobController {
 
   @Autowired private JobService jobService;
 
-  @GetMapping("view-all-jobs")
+  @GetMapping("jobPosts")
   public List<JobPost> getAllJobs() {
     return jobService.findAll();
   }
 
-  @GetMapping("/jobPost/{id}")
+  @GetMapping("/jobPosts/{id}")
   public JobPost getJobPost(@PathVariable int id) {
     return jobService.findById(id);
+  }
+
+  @PostMapping("/jobPosts")
+  public JobPost addJob(@RequestBody JobPost jobPost) {
+    jobService.save(jobPost);
+
+    return jobService.findById(jobPost.getPostId());
   }
 }
