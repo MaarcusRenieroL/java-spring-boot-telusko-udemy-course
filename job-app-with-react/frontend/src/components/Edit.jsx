@@ -17,9 +17,8 @@ const Edit = () => {
   const [form, setForm] = useState(initial);
   const [currId] = useState(location.state.id);
 
-
   useEffect(() => {
-    const fetchInitialPosts = async (id) => {  
+    const fetchInitialPosts = async (id) => {
       const response = await axios.get(`http://localhost:8080/jobPost/${id}`);
       console.log(response.data);
       setForm(response.data);
@@ -29,8 +28,8 @@ const Edit = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios     
-      .post("http://localhost:8080/jobPost",form)
+    axios
+      .post("http://localhost:8080/jobPost", form)
       .then((resp) => {
         console.log(resp.data);
       })
@@ -40,7 +39,10 @@ const Edit = () => {
   };
 
   const handleChange = (e) => {
-    setForm({ ...form, postTechStack: [...form.postTechStack, e.target.value] });
+    setForm({
+      ...form,
+      postTechStack: [...form.postTechStack, e.target.value],
+    });
   };
 
   const skillSet = [

@@ -1,33 +1,32 @@
 import React, { useState } from "react";
 import axios from "axios";
-import {
-  Typography,
-  TextField,
-  Button,
-  Paper,
-  Box,
-} from "@mui/material";
+import { Typography, TextField, Button, Paper, Box } from "@mui/material";
 import { useNavigate } from "react-router-dom";
-const initial = { postId:"",postProfile: "", reqExperience: 0, postTechStack: [], postDesc:"" };
-
+const initial = {
+  postId: "",
+  postProfile: "",
+  reqExperience: 0,
+  postTechStack: [],
+  postDesc: "",
+};
 
 const Create = () => {
   const skillSet = [
     {
-      name: "Javascript"
+      name: "Javascript",
     },
     {
-      name: "Java"
+      name: "Java",
     },
     {
-      name: "Python"
+      name: "Python",
     },
     {
-      name: "Django"
+      name: "Django",
     },
     {
-      name: "Rust"
-    }
+      name: "Rust",
+    },
   ];
 
   const navigate = useNavigate();
@@ -36,7 +35,7 @@ const Create = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
-      .post("http://localhost:8080/jobPost",form)
+      .post("http://localhost:8080/jobPost", form)
       .then((resp) => {
         console.log(resp.data);
       })
@@ -48,13 +47,14 @@ const Create = () => {
   const { postId, postProfile, reqExperience, postDesc } = form;
 
   const handleChange = (e) => {
-    setForm({...form , postTechStack : [...form.postTechStack, e.target.value]});
-  }
-
-  
+    setForm({
+      ...form,
+      postTechStack: [...form.postTechStack, e.target.value],
+    });
+  };
 
   return (
-    <Paper sx={{ padding:"1%"}} elevation={0}>
+    <Paper sx={{ padding: "1%" }} elevation={0}>
       <Typography sx={{ margin: "3% auto" }} align="center" variant="h5">
         Create New Post
       </Typography>
@@ -66,11 +66,10 @@ const Create = () => {
             flexDirection: "column",
           }}
         >
-           <TextField
+          <TextField
             min="0"
             type="number"
             sx={{ width: "50%", margin: "2% auto" }}
-            
             onChange={(e) => setForm({ ...form, postId: e.target.value })}
             label="Enter your Post ID"
             variant="outlined"
@@ -90,12 +89,14 @@ const Create = () => {
             type="number"
             sx={{ width: "50%", margin: "2% auto" }}
             required
-            onChange={(e) => setForm({ ...form, reqExperience: e.target.value })}
+            onChange={(e) =>
+              setForm({ ...form, reqExperience: e.target.value })
+            }
             label="Years of Experience"
             variant="outlined"
             value={reqExperience}
           />
-           <TextField
+          <TextField
             type="string"
             sx={{ width: "50%", margin: "2% auto" }}
             required
@@ -106,35 +107,36 @@ const Create = () => {
             variant="outlined"
             value={postDesc}
           />
-          <Box sx={{ margin:"1% auto"}}>
-          <h3>Please mention required skills</h3>
-         <ul>
-        {skillSet.map(({ name }, index) => {
-          return (
-            <li key={index}>
-              <div >
-                <div>
-                  <input
-                    type="checkbox"
-                    id={`custom-checkbox-${index}`}
-                    name={name}
-                    value={name}
-                    onChange={handleChange}  
-                  />
-                  <label htmlFor={`custom-checkbox-${index}`}>{name}</label>
-                </div>
-              </div>
-            </li>
-          );
-        })}
-       
-      </ul>
+          <Box sx={{ margin: "1% auto" }}>
+            <h3>Please mention required skills</h3>
+            <ul>
+              {skillSet.map(({ name }, index) => {
+                return (
+                  <li key={index}>
+                    <div>
+                      <div>
+                        <input
+                          type="checkbox"
+                          id={`custom-checkbox-${index}`}
+                          name={name}
+                          value={name}
+                          onChange={handleChange}
+                        />
+                        <label htmlFor={`custom-checkbox-${index}`}>
+                          {name}
+                        </label>
+                      </div>
+                    </div>
+                  </li>
+                );
+              })}
+            </ul>
           </Box>
           <Button
             sx={{ width: "50%", margin: "2% auto" }}
             variant="contained"
             type="submit"
-            onClick={()=>navigate("/")}
+            onClick={() => navigate("/")}
           >
             Submit
           </Button>
@@ -142,6 +144,7 @@ const Create = () => {
       </form>
     </Paper>
   );
-}
+};
 
-export default Create
+export default Create;
+

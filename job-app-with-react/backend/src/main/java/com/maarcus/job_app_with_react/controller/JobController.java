@@ -1,25 +1,21 @@
 package com.maarcus.job_app_with_react.controller;
 
 import com.maarcus.job_app_with_react.model.JobPost;
-import org.springframework.stereotype.Controller;
+import com.maarcus.job_app_with_react.service.JobService;
+import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-@Controller
+@RestController
+@CrossOrigin(origins = {"http://localhost:3000"})
 public class JobController {
 
-  @GetMapping({"/", "home"})
-  public String home() {
-    return "home";
-  }
+  @Autowired private JobService jobService;
 
-  @GetMapping("/add-job")
-  public String addJob() {
-    return "add-job";
-  }
-
-  @PostMapping("/handleForm")
-  public String handleForm(JobPost jobPost) {
-    return "success";
+  @GetMapping("view-all-jobs")
+  public List<JobPost> getAllJobs() {
+    return jobService.findAll();
   }
 }

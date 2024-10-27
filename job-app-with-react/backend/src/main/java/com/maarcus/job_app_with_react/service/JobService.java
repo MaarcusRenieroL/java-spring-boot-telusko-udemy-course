@@ -4,7 +4,9 @@ import com.maarcus.job_app_with_react.model.JobPost;
 import com.maarcus.job_app_with_react.repository.JobRepository;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+@Service
 public class JobService {
   @Autowired private JobRepository jobRepository;
 
