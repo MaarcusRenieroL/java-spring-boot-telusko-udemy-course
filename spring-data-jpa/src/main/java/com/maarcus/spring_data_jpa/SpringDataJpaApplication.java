@@ -2,6 +2,7 @@ package com.maarcus.spring_data_jpa;
 
 import com.maarcus.spring_data_jpa.model.Student;
 import com.maarcus.spring_data_jpa.repository.StudentRepository;
+import java.util.Optional;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
@@ -34,5 +35,8 @@ public class SpringDataJpaApplication {
     studentRepository.save(student3);
 
     System.out.println(studentRepository.findAll());
+
+    Optional<Student> optionalStudent = studentRepository.findById(4);
+    System.out.println(optionalStudent.orElse(new Student()));
   }
 }
