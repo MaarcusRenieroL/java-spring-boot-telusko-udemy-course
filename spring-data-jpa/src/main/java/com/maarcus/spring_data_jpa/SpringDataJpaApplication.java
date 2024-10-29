@@ -24,11 +24,12 @@ public class SpringDataJpaApplication {
 
     student2.setRollNo(2);
     student2.setName("B");
-    student2.setMarks(99);
+    // student2.setMarks(99);
+    student2.setMarks(100);
 
     student3.setRollNo(3);
     student3.setName("C");
-    student3.setMarks(98);
+    student3.setMarks(97);
 
     studentRepository.save(student1);
     studentRepository.save(student2);
@@ -38,5 +39,9 @@ public class SpringDataJpaApplication {
 
     Optional<Student> optionalStudent = studentRepository.findById(4);
     System.out.println(optionalStudent.orElse(new Student()));
+
+    System.out.println(studentRepository.findByName("A"));
+    System.out.println(studentRepository.findByMarks(100));
+    System.out.println(studentRepository.findByMarksGreaterThanGiven(98));
   }
 }
