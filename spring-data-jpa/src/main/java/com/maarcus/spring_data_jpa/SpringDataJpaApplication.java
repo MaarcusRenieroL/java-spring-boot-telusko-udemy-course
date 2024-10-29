@@ -24,8 +24,7 @@ public class SpringDataJpaApplication {
 
     student2.setRollNo(2);
     student2.setName("B");
-    // student2.setMarks(99);
-    student2.setMarks(100);
+    student2.setMarks(99);
 
     student3.setRollNo(3);
     student3.setName("C");
@@ -43,5 +42,13 @@ public class SpringDataJpaApplication {
     System.out.println(studentRepository.findByName("A"));
     System.out.println(studentRepository.findByMarks(100));
     System.out.println(studentRepository.findByMarksGreaterThanGiven(98));
+
+    // can use save to update values
+    student2.setMarks(100);
+    studentRepository.save(student2);
+
+    studentRepository.delete(student3);
+
+    System.out.println(studentRepository.findAll());
   }
 }
