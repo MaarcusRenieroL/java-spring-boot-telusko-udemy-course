@@ -15,11 +15,13 @@ const Edit = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const [form, setForm] = useState(initial);
+  const [postId, setPostId] = useState("");
   const [currId] = useState(location.state.id);
 
   useEffect(() => {
     const fetchInitialPosts = async (id) => {
-      const response = await axios.get(`http://localhost:8080/jobPost/${id}`);
+      const response = await axios.get(`http://localhost:8080/jobPosts/${id}`);
+      setPostId(id);
       console.log(response.data);
       setForm(response.data);
     };
@@ -29,13 +31,14 @@ const Edit = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
-      .post("http://localhost:8080/jobPost", form)
+      .put(`http://localhost:8080/jobPosts/${postId}`, form)
       .then((resp) => {
         console.log(resp.data);
       })
       .catch((error) => {
         console.log(error);
       });
+    navigate("/");
   };
 
   const handleChange = (e) => {
@@ -148,7 +151,6 @@ const Edit = () => {
             sx={{ width: "50%", margin: "2% auto" }}
             variant="contained"
             type="submit"
-            onClick={() => navigate("/")}
           >
             Submit
           </Button>

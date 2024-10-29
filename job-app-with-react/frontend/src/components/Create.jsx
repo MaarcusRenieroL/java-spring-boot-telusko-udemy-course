@@ -5,9 +5,9 @@ import { useNavigate } from "react-router-dom";
 const initial = {
   postId: "",
   postProfile: "",
-  reqExperience: 0,
+  requiredExperience: 0,
   postTechStack: [],
-  postDesc: "",
+  postDescription: "",
 };
 
 const Create = () => {
@@ -35,13 +35,15 @@ const Create = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
-      .post("http://localhost:8080/jobPost", form)
+      .post("http://localhost:8080/jobPosts", form)
       .then((resp) => {
         console.log(resp.data);
       })
       .catch((error) => {
         console.log(error);
       });
+    navigate("/");
+    window.location.reload();
   };
 
   const { postId, postProfile, reqExperience, postDesc } = form;
@@ -136,7 +138,6 @@ const Create = () => {
             sx={{ width: "50%", margin: "2% auto" }}
             variant="contained"
             type="submit"
-            onClick={() => navigate("/")}
           >
             Submit
           </Button>

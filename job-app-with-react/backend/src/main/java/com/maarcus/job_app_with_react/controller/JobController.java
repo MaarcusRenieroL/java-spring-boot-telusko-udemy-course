@@ -11,15 +11,17 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @CrossOrigin(origins = {"http://localhost:3000"})
+@RequestMapping("/jobPosts")
 public class JobController {
 
   @Autowired private JobService jobService;
 
-  @GetMapping("jobPosts")
+  @GetMapping
   // @GetMapping(
   //     "jobPosts",
   //     produces = {"application/xml"})
@@ -29,17 +31,17 @@ public class JobController {
     return jobService.findAll();
   }
 
-  @GetMapping("/jobPost/{id}")
+  @GetMapping("/{id}")
   public JobPost getJobPost(@PathVariable int id) {
     return jobService.findById(id);
   }
 
-  @GetMapping("/jobPost/keyword/{keyword}")
+  @GetMapping("/keyword/{keyword}")
   public List<JobPost> searchByKeyword(@PathVariable String keyword) {
     return jobService.searchByKeyword(keyword);
   }
 
-  @PostMapping("/jobPosts")
+  @PostMapping
   // If consumes is added then it means that this post mapping accepts data in xml format only. Else
   // 415 (unsupported media type) error will occur
   // @PostMapping(
@@ -51,14 +53,14 @@ public class JobController {
     return jobService.findById(jobPost.getPostId());
   }
 
-  @PutMapping("/jobPost/{id}")
+  @PutMapping("/{id}")
   public JobPost updateJob(@PathVariable int id, @RequestBody JobPost jobPost) {
     jobService.updateJob(id, jobPost);
 
     return jobService.findById(jobPost.getPostId());
   }
 
-  @DeleteMapping("/jobPost/{id}")
+  @DeleteMapping("/{id}")
   public void deleteJob(@PathVariable int id) {
     jobService.deleteJob(id);
   }
