@@ -1,18 +1,17 @@
 package com.maarcus.job_app.repository;
 
+import com.maarcus.job_app.model.JobPost;
 import java.util.ArrayList;
 import java.util.List;
-
-import com.maarcus.job_app.model.JobPost;
 
 public class JobRepository {
   List<JobPost> jobPosts = new ArrayList<>();
 
-  public List<JobPost> getAllJobPosts() {
+  public List<JobPost> findAll() {
     return jobPosts;
   }
 
-  public void addJob(JobPost jobPost) {
+  public void save(JobPost jobPost) {
     jobPosts.add(jobPost);
   }
 }
