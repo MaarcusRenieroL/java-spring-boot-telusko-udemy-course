@@ -34,6 +34,11 @@ public class JobController {
     return jobService.findById(id);
   }
 
+  @GetMapping("/jobPost/keyword/{keyword}")
+  public List<JobPost> searchByKeyword(@PathVariable String keyword) {
+    return jobService.searchByKeyword(keyword);
+  }
+
   @PostMapping("/jobPosts")
   // If consumes is added then it means that this post mapping accepts data in xml format only. Else
   // 415 (unsupported media type) error will occur

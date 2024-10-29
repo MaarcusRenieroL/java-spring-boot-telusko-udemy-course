@@ -15,6 +15,10 @@ public class JobService {
     return jobRepository.findAll();
   }
 
+  public List<JobPost> searchByKeyword(String keyword) {
+    return jobRepository.findByPostProfileContainingOrPostDescriptionContaining(keyword, keyword);
+  }
+
   public void save(JobPost jobPost) {
     jobRepository.save(jobPost);
   }
