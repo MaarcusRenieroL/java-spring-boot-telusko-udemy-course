@@ -6,9 +6,9 @@ import axios from "axios";
 const initial = {
   postId: "",
   postProfile: "",
-  reqExperience: 0,
+  requiredExperience: 0,
   postTechStack: [],
-  postDesc: "",
+  postDescription: "",
 };
 
 const Edit = () => {
@@ -100,11 +100,11 @@ const Edit = () => {
             sx={{ width: "50%", margin: "2% auto" }}
             required
             onChange={(e) =>
-              setForm({ ...form, reqExperience: e.target.value })
+              setForm({ ...form, requiredExperience: e.target.value })
             }
             label="Years of Experience"
             variant="outlined"
-            value={form.reqExperience}
+            value={form.requiredExperience}
           />
           <TextField
             type="string"
@@ -112,10 +112,12 @@ const Edit = () => {
             required
             multiline
             rows={4}
-            onChange={(e) => setForm({ ...form, postDesc: e.target.value })}
+            onChange={(e) =>
+              setForm({ ...form, postDescription: e.target.value })
+            }
             label="Job-desc"
             variant="outlined"
-            value={form.postDesc}
+            value={form.postDescription}
           />
           <Box sx={{ margin: "1% auto" }}>
             <h3>Please mention required skills</h3>
